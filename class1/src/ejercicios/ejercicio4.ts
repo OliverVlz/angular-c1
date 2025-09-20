@@ -54,7 +54,7 @@ console.log(p33);
 export {};
 
 ////---------------------------------
-interface IProducto {
+export interface IProducto {
     descripcion: string;
     precio: number;
 }
@@ -76,13 +76,13 @@ const impuesto: number = 0.19;
 const propina: number = 0.10;
 
 // Definir una interface para las opciones del cálculo de impuestos
-interface ImpuestosOption {
+export interface ImpuestosOption {
     impuesto: number;
     productos: IProducto[];
     propina?: number;
 }
 
-function calcularIpuesto(options: ImpuestosOption): number[] {
+export function calcularIpuesto(options: ImpuestosOption): number[] {
     //Cuando se usa un valor optional '?' se debe asingnar un valor por defecto
     const {impuesto, productos, propina = 0} = options;
     let total = 0;
