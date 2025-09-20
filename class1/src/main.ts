@@ -7,8 +7,9 @@ import './ejercicios/ejercicio6';
 import './ejercicios/ejercicio7';
 import './ejercicios/ejercicio8';
 import './ejercicios/clases';
-*/
 import './entregables/clase2/comidas';
+*/
+import './ejercicios/genericos';
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
 app.innerHTML = `Hola Mundo!`;
