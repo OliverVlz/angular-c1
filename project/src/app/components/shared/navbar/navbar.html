@@ -1,0 +1,16 @@
+
+<nav>
+  <a routerLink="/" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">Home</a> |
+  <a [routerLink]="['/car']" [routerLinkActive]="'active'">Car</a> |
+  <a routerLink="/dragonball" [routerLinkActive]="'active'">Dragonball</a> |
+  <a routerLink="/dragonball-super" [routerLinkActive]="'active'">Dragonball Super</a>
+</nav>
+
+<!--
+- Dentro de pages crear un componente dragonball
+  * .ts
+  * .html -> "Dragonball works!"
+- Crear la ruta correspondiente 'dragonball' en app.routes.ts
+- Agregarlo al navbar, que aparezca al final y tenga el mismo comportamiento
+que los demas
+ -->

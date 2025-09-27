@@ -1,0 +1,19 @@
+<h3>{{listName()}}</h3>
+<ul class="list-group">
+  @for(character of characters(); track character.id; let index = $index) {
+    @if(character.power > 7000){
+
+    <li>
+      <span>{{ index + 1 }}. {{ character.name }}: </span>
+      <span
+      [class.text-danger]="character.power >= 9000"
+      [class.text-primary]="character.power < 9000"
+      >{{ character.power }}</span>
+    </li>
+    } @else {
+      <li>
+        <span>No power required</span>
+      </li>
+    }
+  }
+</ul>

@@ -18,7 +18,7 @@ export class CounterPage {
   }
   add(value:number) {
     this.counter += value;
-    this.counterSignal.update((currentValue:number) => currentValue + value);
+    //this.counterSignal.update((currentValue:number) => currentValue + value);
   }
 
   decrease(value:number){

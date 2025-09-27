@@ -1,0 +1,51 @@
+<section class="row">
+  <div class="col-12 col-sm-6">
+    <h3>Agregar: {{ name() }}</h3>
+    <input
+      type=" text"
+      class="form-control"
+      placeholder="Nombre..."
+      [value]="name()"
+      (input)="name.set(textName.value)"
+      #textName
+      />
+    <input
+      type="number"
+      class="form-control mt-2"
+      placeholder="Poder..."
+      [value]="power()"
+      (input)="power.set(+textPower.value)"
+      #textPower
+      />
+      <!--- Note the unary plus +textPower to convert string to number --->
+    <button
+      class="btn btn-primary mt-2"
+      (click)="addCharacter()"
+      >Guardar</button>
+  </div>
+
+  <div class="col-12 col-sm-6">
+    <h3>Lista</h3>
+    <ul class="list-group">
+      @for(character of characters(); track character.id; let index = $index) {
+        @if(character.power > 7000){
+
+        <li>
+          <span>{{ index + 1 }}. {{ character.name }}: </span>
+          <!---
+          <span
+          [class.text-danger]="character.power >= 9000"
+          [class.text-primary]="character.power < 9000"
+          >{{ character.power }}</span> --->
+          <span [ngClass]="powerClass()">{{ character.power }}</span>
+        </li>
+        } @else {
+          <li>
+            <span>No power required</span>
+          </li>
+        }
+
+      }
+    </ul>
+  </div>
+</section>

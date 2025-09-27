@@ -1,28 +1,31 @@
-import { ChangeDetectionStrategy, Component, signal, WritableSignal } from "@angular/core";
+import { UpperCasePipe } from "@angular/common";
+import { ChangeDetectionStrategy, Component, computed, Pipe, signal, WritableSignal } from "@angular/core";
 
 @Component({
   templateUrl: './car.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  imports: [UpperCasePipe],
+  //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CarComponent {
   brandSignal = signal('Renault');
   yearSignal = signal(2020);
   studentSignal = signal('oliver');
+  getCarComputed = computed(() => `${this.brandSignal()} - ${this.yearSignal()}`);
 
   constructor(){
     setInterval(() => {
       //this.counter++;
-      this.getCarDescription();
+      //this.getCarDescription();
     }, 1000);
   }
 
   getStudentNameUppercase() {
     return this.studentSignal().toUpperCase();
   }
-
+  /*
   getCarDescription() {
     return `${this.brandSignal()} - ${this.yearSignal()}`;
-  }
+  }*/
 
   changeCar(){
     this.brandSignal.update((brandSignal:string) => 'Kia');
