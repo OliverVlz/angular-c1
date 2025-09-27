@@ -1,0 +1,9 @@
+h1{
+  color: rgba(0, 0, 255, 0.233);
+}
+
+button {
+  background-color: rgba(0, 255, 255, 0.411);
+  color: rgb(109, 29, 29);
+  padding: 100px;
+}
