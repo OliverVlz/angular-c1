@@ -2,5 +2,7 @@ export const environment = {
   production: false,
   companyName: 'Gifs Test',
   companyName2: 'App',
-  companySlogan: 'Your favorite GIFs in one place'
+  companySlogan: 'Your favorite GIFs in one place',
+
+  apiKey: 'A5hS9jXEQGoKUJdUwK3rbRDB2aGoL5K5',
 };
