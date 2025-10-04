@@ -1,7 +1,13 @@
+
 [build]
   base = "project"
-  publish = "project/dist/project"
-  command = "npm install && npm run build -- --configuration=production"
+  command = "npm ci && npm run build -- --configuration=production"
+  publish = "dist/project/browser"
 
 [build.environment]
   NODE_VERSION = "22"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
