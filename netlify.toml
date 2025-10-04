@@ -1,0 +1,7 @@
+[build]
+  base = "project"
+  publish = "project/dist/project"
+  command = "npm install && npm run build -- --configuration=production"
+
+[build.environment]
+  NODE_VERSION = "20"
