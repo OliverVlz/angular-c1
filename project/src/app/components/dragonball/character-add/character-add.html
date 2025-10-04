@@ -1,0 +1,24 @@
+
+<h3>Agregar: {{ name() }}</h3>
+<input
+  type=" text"
+  class="form-control"
+  placeholder="Nombre..."
+  [value]="name()"
+  (input)="name.set(textName.value)"
+  #textName
+  />
+<input
+  type="number"
+  class="form-control mt-2"
+  placeholder="Poder..."
+  [value]="power()"
+  (input)="power.set(+textPower.value)"
+  #textPower
+  />
+  <!--- Note the unary plus +textPower to convert string to number --->
+<button
+  class="btn btn-primary mt-2"
+  (click)="addCharacter()"
+>Guardar</button>
+
