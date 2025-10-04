@@ -4,4 +4,4 @@
   command = "npm install && npm run build -- --configuration=production"
 
 [build.environment]
-  NODE_VERSION = "20"
+  NODE_VERSION = "22"
