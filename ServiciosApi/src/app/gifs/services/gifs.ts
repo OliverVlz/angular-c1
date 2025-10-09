@@ -11,6 +11,8 @@ import { Gif } from '../interfaces/gif.interface';
 export class GifsService {
   private http = inject(HttpClient);
   trendingGifs = signal<Gif[]>([]);
+  searchGifs = signal<Gif[]>([]);
+  isLoading = signal<boolean>(false);
 
   constructor() {
     this.loadTrendingGifs();
@@ -23,10 +25,38 @@ export class GifsService {
         limit: 40,
       }
     }).subscribe((response) => {
-      //console.log(response.data[0].images.original.url);
       const gifs = GifMapper.mapGiphyItemsToArray(response.data);
       this.trendingGifs.set(gifs);
       console.log(gifs);
+    });
+  }
+
+  searchGifsByQuery(query: string){
+    if (!query.trim()) {
+      this.searchGifs.set([]);
+      return;
+    }
+
+    this.isLoading.set(true);
+    this.searchGifs.set([]);
+
+    this.http.get<GiphyResponse>(`${environment.urlBase}/gifs/search`, {
+      params: {
+        api_key: environment.apiKey,
+        q: query,
+        limit: 20,
+      }
+    }).subscribe({
+      next: (response) => {
+        const gifs = GifMapper.mapGiphyItemsToArray(response.data);
+        this.searchGifs.set(gifs);
+        this.isLoading.set(false);
+      },
+      error: (error) => {
+        console.error('Error en la búsqueda:', error);
+        this.searchGifs.set([]);
+        this.isLoading.set(false);
+      }
     });
   }
 }
