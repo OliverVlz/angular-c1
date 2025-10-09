@@ -2,6 +2,11 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'dashboard/trending',
+    pathMatch: 'full'
+  },
+  {
     path: 'dashboard',
     loadComponent: () => import('./gifs/pages/dashboard-page/dashboard-page'),
     children: [
@@ -17,6 +22,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'dashboard',
+    redirectTo: 'dashboard/trending',
   },
 ];
